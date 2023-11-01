@@ -1,5 +1,6 @@
 import unittest
 
+
 ft_list = ["Hello", "tata!"]
 ft_tuple = ("Hello", "toto!")
 ft_set = {"Hello", "tutu!"}
@@ -65,6 +66,7 @@ class TestTypeMethods(unittest.TestCase):
         var = ft_dict
         self.assertIsInstance(var, dict)
         self.assertEqual(var, {'Hello': '42'})
+
 
 print(ft_list)
 print(ft_tuple)
