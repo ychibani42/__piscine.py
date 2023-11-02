@@ -1,10 +1,16 @@
 import sys
 
 
-def builder(s):
+def builder():
+    if len(sys.argv) < 2:
+        val = input("What is the text to count?\n")
+    elif len(sys.argv > 2):
+          raise AssertionError("Wrong Number of argument")
+    else:
+        val = sys.argv[1];
     d = {"uppercase": 0, "lowercase": 0, "punctuation": 0,
          "space": 0, "digit": 0}
-    for c in s:
+    for c in val:
         if c.isupper():
             d["uppercase"] += 1
         elif c.islower():
@@ -13,12 +19,11 @@ def builder(s):
             d["space"] += 1
         elif c.isdigit():
             d["digit"] += 1
-        elif c in ('!', ",", "\'", ";", "\"", ".", "-", "?", ":"):
+        elif c in ['!', ",", "\'", ";", "\"", ".", "-", "?", ":"]:
             d["punctuation"] += 1
         else:
             pass
-    val = input("Enter :")
-    print("The text contains %d characters: " % len(s))
+    print("The text contains %d characters: " % len(val))
     print("%d upper letters" % d["uppercase"])
     print("%d lower letters" % d["lowercase"])
     print("%d punctuation marks" % d["punctuation"])
@@ -26,4 +31,5 @@ def builder(s):
     print("%d digits" % d["digit"])
 
 
-builder(sys.argv[1])
+if __name__ == "__main__":
+    builder()
